@@ -1,0 +1,40 @@
+{% extends 'base2.html' %}
+{% block section %}
+<section>
+    <style>
+        .table {
+            width: 80%;
+        }
+    </style>
+    <div class="container">
+        <div class="row">
+            <div class="info col-8 ">
+            <h2>Coustmer List</h2>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 5%">id</th>
+                            <th scope="col" style="width: 25%">Coustmer Name</th>
+                            <th scope="col" style="width: 15%">Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in customer %}
+                       <tr>
+                            <th scope="row">{{i.id}}</th>
+                            <td><a href="{% url 'transfer' i.id %}" style="text-decoration: none;">{{i.name}}</a></td>
+                            <td>{{i.mail}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-4">
+                <img src="/static/img/istockphoto-1157715407-612x612.jpg">
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock section %}

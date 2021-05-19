@@ -1,0 +1,61 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-size:18px;
+} 
+
+/* ---background---*/
+main{
+    background: linear-gradient(180deg, #FFFFFF 79.48%, #E6E6FE 100%);
+    height: 100vh;
+}
+
+img{
+width: 554px;
+height:400px;
+margin-top: 40%;
+margin-right: 0;
+margin-left:0%;
+}
+.nav-container{
+    height: 100vh;
+}
+/* ------ footer ------ */
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+ }
+ .footer p{
+     margin: 0;
+ }
+
+
+ /* --- btn --- */
+ .btn-get-started{
+    margin-top: 30px;
+    padding: 10px 30px;
+    color: white;
+    background: #7E3EB0;
+    border-radius: 50px;
+    border: black;
+
+ }
+
+ /* ----- information ----- */
+ .info{
+     margin-top: 10px;
+ }
+
+ .para{
+    width: 80%;
+ }
+
+ .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #ececfd;
+  }
+  

@@ -1,0 +1,49 @@
+{% extends 'base2.html' %}
+{% block section %}
+<section>
+    <style>
+        .table {
+            width: 80%;
+        }
+    .tarnsfer{
+    width: 554px;
+    height:400px;
+    margin-top: 30%;
+    margin-right: 0;
+    margin-left:0%;
+    }
+    </style>
+    <div class="container">
+        <div class="row">
+            <div class="info col-8 ">
+            <h2>Transaction History</h2>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 5%">S. NO.</th>
+                            <th scope="col" style="width: 25%">Transferd from</th>
+                            <th scope="col" style="width: 25%">Transfered to</th>
+                            <th scope="col" style="width: 15%">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in history %}
+                       <tr>
+                            <th scope="row">{{forloop.counter}}</a></th>
+                            <td>{{i.transferby}}</td>
+                            <td>{{i.transferto}}</td>
+                            <td> &#8377 {{i.amount}}</td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-4">
+                <img class="tarnsfer" src="/static/img/illustr_2.png">
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock section %}

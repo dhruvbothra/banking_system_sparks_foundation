@@ -1,0 +1,81 @@
+{% extends 'base2.html' %}
+{% block section %}
+<section>
+    <style>
+        .table {
+            width: 80%;
+        }
+        .tarnsfer{
+    width: 554px;
+    height:400px;
+    margin-top: 30%;
+    margin-right: 0;
+    margin-left:0%;
+    }
+    .btn{
+        background-color: #7E3EB0;
+        color: white;
+    }
+    </style>
+
+    <div class="container">
+        <div class="row">
+            <div class="info col-8 ">
+            <div class="row my-5">
+                <div class="col-6">
+                    <h2>Coustmer Detail</h2>
+
+                    <h4>Name: <span> {{trans.name}}</span></h4>
+                    <h4>Email-id: <span>{{trans.mail}}</span></h4>
+                    <h4>Amount: <span>&#8377 {{trans.balance}}</span></h4>
+                    
+                </div>
+                <div class="col-6">
+                <h2>Tranfer Money</h2>
+                    <form action="{% url 'transfer_processing' trans.id %}" method="post">
+                        <div class="form-group">
+                            <label for="transferfrom">Tranfered From</label>
+                            <input type="text" readonly class="form-control" name = "transferby" id="transferfrom" value={{trans.name}}>
+                        </div>
+                        <div class="form-group">
+                            <label for="transferto">Tranfered To</label>
+                            <select class="custom-select" name = "transferto" id="transferto" >
+                                <option selected>Select Name</option>
+                                {% for i  in customer%}
+                                <option value={{i.name}}>{{i.name}}</option>
+                                {% endfor %}
+                                
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="amount">Amount</label>
+                            <input type="number" min=0 class="form-control" name="amount" id="amount">
+                        </div>
+                        {% csrf_token %}
+                        <button type="submit" onclick="check()" class="btn">Transfer</button>
+                    </form>
+                </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <img class="tarnsfer" src="/static/img/illustr_21.png">
+                      
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<script>
+function check(){
+var x=document.getElementById("amount").value;
+if ({{trans.balance}}<x){
+    alert("Insufficient balance!!!");
+}
+else{
+    alert("Transfer Successful!!!");
+}
+}
+</script>    
+</section>
+{% endblock section %}
